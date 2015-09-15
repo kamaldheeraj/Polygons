@@ -35,5 +35,18 @@ class Polygon{
             }
         }
     }
+    var sides: Int? {
+        willSet(newSides){
+            if(newSides<3){
+                sides=3
+            }
+            else if(newSides>12){
+                sides=12
+            }
+            else{
+                sides=newSides
+            }
+        }
+    }
     
 }
