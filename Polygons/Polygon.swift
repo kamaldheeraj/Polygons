@@ -10,51 +10,54 @@ import Foundation
 
 class Polygon{
     var minSides: Int = 3 {
-        willSet(newMinSides){
-            if newMinSides>maxSides{
+        //didGet observer for minSides of Polygon
+        didSet{
+            if minSides<3{
+                minSides=3
+            }
+            if minSides>maxSides{
             minSides=maxSides
             }
-            else if newMinSides<3{
-            minSides=3
-            }
-            else{
-            minSides=newMinSides
-            }
         }
+        /*willSet{
+            if newValue<3{
+                minSides=3
+            }
+            if newValue>maxSides{
+                minSides=maxSides
+            }
+        }*/
     }
     var maxSides: Int = 12 {
-        willSet(newMaxSides){
-            if newMaxSides<minSides{
+        //didGet observer for maxSides of Polygon
+        didSet{
+            if maxSides<minSides{
             maxSides=minSides
             }
-            else if newMaxSides>12{
+            if maxSides>12{
             maxSides=12
-            }
-            else{
-            maxSides=newMaxSides
             }
         }
     }
     var sides: Int=3 {
-        willSet(newSides){
-            if(newSides<3){
-                sides=3
+        //didGet observer for sides of Polygon
+        didSet{
+            if(sides<minSides){
+                sides=minSides
             }
-            else if(newSides>12){
-                sides=12
-            }
-            else{
-                sides=newSides
+            if(sides>maxSides){
+                sides=maxSides
             }
         }
     }
     var name: String {
+        //Computed Property for name of Polygon
         get{
             switch sides {
             case 3:
             return "Triangle"
             case 4:
-                return "Quadrilateral"
+                return "Square"
             case 5:
                 return "Pentagon"
             case 6:
@@ -74,21 +77,26 @@ class Polygon{
             }
         }
     }
+    //Designated Initializer for Polygon class
     init(minSides:Int,maxSides:Int,sides:Int){
         self.minSides=minSides
         self.maxSides=maxSides
         self.sides=sides
     }
+    //Convenience Initializer for Polygon class
     convenience init(){
         self.init(minSides: 3, maxSides: 12, sides: 5)
     }
+    //Method for Interior Angles in Degrees for Polygon
     func interiorAngleInDegree()->Double{
         return 180 * Double(sides-2)/Double(sides)
     }
+    //Method for Interior Angles in Radian for Polygon
     func interiorAnglesInRadians()->Double{
         return self.interiorAngleInDegree() * (M_PI/180)
     }
+    //Method for description of Polygon
     func description()->String{
-        return  "I am a \(self.sides)-sided polygon (a.k.a a \(self.name) with interior angles of \(self.interiorAngleInDegree()) degrees \(self.interiorAnglesInRadians()) radians)"
+        return  "I am a \(self.sides)-sided polygon (a.k.a a \(self.name)) with interior angles of \(self.interiorAngleInDegree()) degrees (\(self.interiorAnglesInRadians()) radians)\n"
     }
 }
