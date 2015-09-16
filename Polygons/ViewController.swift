@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         let polygon4 = Polygon(minSides:4,maxSides:8,sides:2)
         println(polygon4.description())
         
-        //Setting Labels for Polygon sides and Polygon name
+        //Setting Labels for Polygon sides,Polygon name and printing Polygon description
         sidesLabel.text=String(polygon.sides)
         nameLabel.text=polygon.name
         println(polygon.description())
@@ -49,7 +49,6 @@ class ViewController: UIViewController {
 
     @IBAction func sideStepperValueChanged(sender: AnyObject) {
         polygon.sides=Int(sideStepper.value)
-        //viewDidLoad()
         sidesLabel.text=String(polygon.sides)
         nameLabel.text=polygon.name
         println(polygon.description())
