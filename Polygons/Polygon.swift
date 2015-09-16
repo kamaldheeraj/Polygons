@@ -79,9 +79,9 @@ class Polygon{
     }
     //Designated Initializer for Polygon class
     init(minSides:Int,maxSides:Int,sides:Int){
-        self.minSides=minSides
-        self.maxSides=maxSides
-        self.sides=sides
+        self.setMinSidesTo(minSides)
+        self.setMaxSidesTo(maxSides)
+        self.setSidesTo(sides)
     }
     //Convenience Initializer for Polygon class
     convenience init(){
@@ -98,5 +98,16 @@ class Polygon{
     //Method for description of Polygon
     func description()->String{
         return  "I am a \(self.sides)-sided polygon (a.k.a a \(self.name)) with interior angles of \(self.interiorAngleInDegree()) degrees (\(self.interiorAnglesInRadians()) radians)\n"
+    }
+    //Method to set maxSides of Polygon
+    func setMaxSidesTo(maxSides:Int){
+        self.maxSides=maxSides
+    }
+    //Method to set minSides of Polygon
+    func setMinSidesTo(minSides:Int){
+        self.minSides=minSides
+    }//Method to set sides of Polygon
+    func setSidesTo(sides:Int){
+        self.sides=sides
     }
 }
