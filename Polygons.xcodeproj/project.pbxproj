@@ -415,6 +415,7 @@
 				55CC949B1BA796590047E981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		55CC949C1BA796590047E981 /* Build configuration list for PBXNativeTarget "PolygonsTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +424,7 @@
 				55CC949E1BA796590047E981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
